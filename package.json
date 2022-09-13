@@ -1,8 +1,29 @@
 {
   "name": "design-system-template",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreifilip123/design-system-template.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "design-system-template.cjs",
+  "module": "design-system-template.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/design-system-template.js",
+      "require": "./dist/design-system-template.cjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
