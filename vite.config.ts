@@ -10,8 +10,8 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'Fruity Design System',
-      fileName: 'fruity-design-system',
+      name: 'Design System Template',
+      fileName: 'design-system-template',
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
