@@ -71,22 +71,13 @@ jobs:
       - name: Build package
         run: yarn build
 
-      - name: Copy package.json to dist
-        run: cp package.json dist
-
-      - name: Disable .gitignore temporarly
-        run: git config advice.addIgnoredFile false
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: design-system-template
           path: dist
 
-      - name: Disable yarn version git tag
-        run: yarn config set version-git-tag false
-
       - name: Publish package
-        run: cd dist && yarn publish . --ignore-scripts 
+        run: yarn publish .
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
