@@ -1,7 +1,7 @@
 {
   "name": "design-system-template",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",
