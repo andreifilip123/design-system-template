@@ -25,4 +25,13 @@ export default defineConfig({
       plugins: [typescript({ tsconfig: './tsconfig.json' })],
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/tests/vitest.setup.js',
+    coverage: {
+      reporter: ['text', 'html'],
+      exclude: ['node_modules/', 'src/tests/vitest.setup.js'],
+    },
+  },
 })
