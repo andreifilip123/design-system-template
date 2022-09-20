@@ -1,11 +1,11 @@
 // components 
-import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+import Button from "./components/Button/Button";
 
 // utilities
 import copyToClipboard from "./utilities/copyToClipboard";
 
 export const components = {
-  LoadingSpinner
+  Button,
 };
 
 export const utilities = {
