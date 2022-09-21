@@ -5,7 +5,7 @@ import Button from './Button';
 
 describe('Button Component', () => {
   it('renders component differently based on primary prop', () => {
-    const wrapper = shallow(<Button primary label='Text' />);
+    const wrapper = shallow(<Button primary label="Text" />);
     expect(wrapper.exists('button.storybook-button__primary')).toBeTruthy();
 
     wrapper.setProps({ primary: false });
@@ -14,7 +14,7 @@ describe('Button Component', () => {
   });
 
   it('renders component differently based on size prop', () => {
-    const wrapper = shallow(<Button size="large" label='Text' />);
+    const wrapper = shallow(<Button size="large" label="Text" />);
     expect(wrapper.exists('button.storybook-button__large')).toBeTruthy();
 
     wrapper.setProps({ size: 'small' });

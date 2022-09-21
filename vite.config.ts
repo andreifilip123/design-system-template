@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import typescript from '@rollup/plugin-typescript';
 import { resolve } from 'path';
 
@@ -28,10 +28,10 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './src/tests/vitest.setup.js',
+    setupFiles: './src/tests/vitest.setup.ts',
     coverage: {
       reporter: ['text', 'html'],
       exclude: ['node_modules/', 'src/tests/vitest.setup.js'],
     },
   },
-})
+});

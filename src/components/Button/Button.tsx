@@ -9,13 +9,7 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
-  ...props
-}: ButtonProps) => {
+const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
   const mode = primary ? 'storybook-button__primary' : 'storybook-button__secondary';
   return (
     <button
