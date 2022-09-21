@@ -1,5 +1,5 @@
 {
-  "name": "@andreifilip123/design-system-template",
+  "name": "@Binogi/design-system-template",
   "private": false,
   "version": "0.7.0",
   "type": "module",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/andreifilip123/design-system-template.git"
+    "url": "https://github.com/binogi/design-system-template.git"
   },
   "files": [
     "dist"
