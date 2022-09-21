@@ -37,7 +37,28 @@
     "stylelint": "stylelint \"src/**/*.scss\" \"src/**/*.css\" \"src/**/*.sass\"",
     "stylelint-fix": "stylelint \"src/**/*.scss\" \"src/**/*.css\" \"src/**/*.sass\" --fix",
     "prettier": "prettier --check src",
-    "prettier-fix": "prettier --write src"
+    "prettier-fix": "prettier --write src",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.jsx": "eslint",
+    "*.ts": "eslint",
+    "*.tsx": "eslint",
+    "*.scss": [
+      "stylelint"
+    ],
+    "*.css": [
+      "stylelint"
+    ],
+    "*.sass": [
+      "stylelint"
+    ]
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -76,7 +97,9 @@
     "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
     "jsdom": "^20.0.0",
+    "lint-staged": "^13.0.3",
     "mutationobserver-shim": "^0.3.7",
     "postcss": "^8.4.16",
     "postcss-scss": "^4.0.5",
