@@ -1,0 +1,76 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "standard",
+        "plugin:react/recommended",
+        "airbnb-typescript",
+        "airbnb/hooks",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:prettier/recommended",
+        "eslint:recommended"
+    ],
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "worker": true,
+        "jest": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": [
+            "./tsconfig.json"
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.stories.*"
+            ],
+            "rules": {
+                "import/no-extraneous-dependencies": 0,
+                "import/no-anonymous-default-export": 0
+            }
+        },
+        {
+            "files": [
+                "vitest.setup.ts",
+                "vite.config.ts"
+            ],
+            "rules": {
+                "import/no-extraneous-dependencies": 0
+            }
+        }
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}

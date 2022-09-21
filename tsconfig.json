@@ -28,6 +28,7 @@
     "outDir": "dist"
   },
   "include": [
-    "src"
+    "src",
+    "vite.config.ts"
   ]
 }
