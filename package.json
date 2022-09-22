@@ -1,7 +1,7 @@
 {
   "name": "@Binogi/design-system-template",
   "private": false,
-  "version": "0.8.0",
+  "version": "0.8.1",
   "type": "module",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",
