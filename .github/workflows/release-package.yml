@@ -79,9 +79,9 @@ jobs:
         run: yarn build-storybook
 
       - name: Update base href
-        run: sed -i 's/%STORYBOOK_BASE_HREF%/'"${REPOSITORY_NAME}"'/g' storybook-static/iframe.html
+        run: sed -i 's/%STORYBOOK_BASE_HREF%/'"${PAGE_URL}"'/g' storybook-static/iframe.html
         env:
-          REPOSITORY_NAME: ${{ github.event.repository.name }}
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
