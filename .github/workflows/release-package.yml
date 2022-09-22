@@ -7,6 +7,15 @@ on:
   release:
     types: [created]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,6 +50,9 @@ jobs:
   publish-pages:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -63,11 +75,21 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Deploy storybook to GitHub Pages
-        run: npm run deploy-storybook -- --ci
+      - name: Build storybook
+        run: yarn build-storybook
+
+      - name: Update base href
+        run: sed -i 's/%STORYBOOK_BASE_HREF%/${REPOSITORY_NAME}/g' storybook-static/index.html
         env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
-          STORYBOOK_BASE_HREF: ${{ github.event.repository.name }}
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'storybook-static'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
 
   publish-gpr:
     needs: build
