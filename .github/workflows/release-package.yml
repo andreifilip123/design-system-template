@@ -78,10 +78,10 @@ jobs:
       - name: Build storybook
         run: yarn build-storybook
 
-      - name: Update base href
-        run: sed -i 's,%STORYBOOK_BASE_HREF%,'"${PAGE_URL}"',g' storybook-static/iframe.html
-        env:
-          PAGE_URL: https://binogi.github.io/${{ github.event.repository.name }}
+      # - name: Update base href
+      #   run: sed -i 's,%STORYBOOK_BASE_HREF%,'"${PAGE_URL}"',g' storybook-static/iframe.html
+      #   env:
+      #     PAGE_URL: https://binogi.github.io/${{ github.event.repository.name }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

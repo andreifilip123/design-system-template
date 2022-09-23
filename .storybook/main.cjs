@@ -14,5 +14,14 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
-  }
+  },
+  "managerHead": (head, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      return (`
+        ${head}
+        <base href="https://binogi.github.io/design-system-template/">
+      `);
+    }
+  },
+
 }
