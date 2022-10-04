@@ -75,8 +75,8 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Build storybook
-        run: yarn build-storybook
+      - name: Build Storybook
+        run: yarn run build-storybook
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
