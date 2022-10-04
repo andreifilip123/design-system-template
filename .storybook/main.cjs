@@ -23,5 +23,7 @@ module.exports = {
       `);
     }
   },
-
+  async viteFinal(config, { configType }) {
+    config.base = '' // https://github.com/storybookjs/builder-vite/issues/238#issuecomment-1036386101
+  },
 }
