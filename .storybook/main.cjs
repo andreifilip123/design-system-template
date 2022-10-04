@@ -1,3 +1,5 @@
+const { mergeConfig } = require('vite');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -14,5 +16,18 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
-  }
+  },
+  "managerHead": (head, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      return (`
+        ${head}
+        <base href="https://binogi.github.io/design-system-template/">
+      `);
+    }
+  },
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      base: '', // https://github.com/storybookjs/builder-vite/issues/238#issuecomment-1036386101
+    });
+  },
 }
