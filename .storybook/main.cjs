@@ -1,3 +1,5 @@
+const { mergeConfig } = require('vite');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
